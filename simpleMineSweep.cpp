@@ -71,19 +71,36 @@ bool Attack(int x, int y)
 
 int main()
 {
+	int pos1, pos2;
+	char prompt;
+
+	srand(time(NULL));
 	cout << "Enter the number of rows..." << endl;
 	cin >> rows;
 	cout << "Enter the number of columns..." << endl;
 	cin >> columns;
 	Clear(rows, columns);
 	Draw(rows, columns);
-	cout << "----------------------------------------------------------" << endl;
 	SetMines(rows, columns);
-	Draw(rows, columns);
-	Attack(1, 1);
-	cout << "----------------------------------------------------------" << endl;
-	Draw(rows, columns);
-	cout << "Number of left mines is: " << NumberOfMines(rows, columns) << endl;
+
+	while (1)
+	{
+		cout << "Enter input location...";
+		cin >> pos1 >> pos2;
+		if (Attack(pos1, pos2))
+		{
+			cout << "Game is Over!!" << endl;
+			cout << "You are on the mine!" << endl;
+			Draw(rows, columns);
+			break;
+		}
+		else
+		{
+			cout << "There is no mine in this location..." << endl;
+			cout << "Number of left mines is: " << NumberOfMines(rows, columns) << endl;
+		}
+	}
+
 	system("pause");
 	return 0;
 }
