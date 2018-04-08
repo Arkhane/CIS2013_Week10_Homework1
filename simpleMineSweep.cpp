@@ -81,6 +81,7 @@ int main()
 	SetMines(rows, columns);
 	Draw(rows, columns);
 	Attack(1, 1);
+	cout << "----------------------------------------------------------" << endl;
 	Draw(rows, columns);
 	cout << "Number of left mines is: " << NumberOfMines(rows, columns) << endl;
 	system("pause");
