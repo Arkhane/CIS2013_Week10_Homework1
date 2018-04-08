@@ -79,6 +79,9 @@ int main()
 	cin >> rows;
 	cout << "Enter the number of columns..." << endl;
 	cin >> columns;
+	cout << "Enter the number of mines..." << endl;
+	cin >> maxMines;
+
 	Clear(rows, columns);
 	Draw(rows, columns);
 	SetMines(rows, columns);
@@ -89,9 +92,9 @@ int main()
 		cin >> pos1 >> pos2;
 		if (Attack(pos1, pos2))
 		{
+			Draw(rows, columns);
 			cout << "Game is Over!!" << endl;
 			cout << "You are on the mine!" << endl;
-			Draw(rows, columns);
 			break;
 		}
 		else
